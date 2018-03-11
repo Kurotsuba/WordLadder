@@ -3,6 +3,7 @@ package SJTUSE;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import java.util.*;
 
 /**
  * Unit test for simple App.
@@ -33,6 +34,15 @@ public class AppTest
      */
     public void testApp()
     {
-        assertTrue( true );
+        final App app = new App();
+        String testDictStr = "a\nb\nc\nd\n";
+        HashSet<String> testDict = app.getDict(testDictStr);
+        System.out.println("dict size is "+testDict.size());
+
+        String testDictPath = "testDict";
+        HashSet<String> pathDict = app.getDict(app.readToString(testDictPath));
+        System.out.println("dict size is "+pathDict.size());
+
+        
     }
 }
