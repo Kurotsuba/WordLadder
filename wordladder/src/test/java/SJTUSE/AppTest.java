@@ -35,14 +35,16 @@ public class AppTest
     public void testApp()
     {
         final App app = new App();
-        String testDictStr = "a\nb\nc\nd\n";
-        HashSet<String> testDict = app.getDict(testDictStr);
-        System.out.println("dict size is "+testDict.size());
 
-        String testDictPath = "testDict";
-        HashSet<String> pathDict = app.getDict(app.readToString(testDictPath));
-        System.out.println("dict size is "+pathDict.size());
-
+        String testDictPath = "EnglishWords.txt";
+        HashSet<String> pathDict = new HashSet<String>();
+        try{
+            pathDict = app.DicGenerate(testDictPath);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+            
+        app.findWay("cat", "dog", pathDict);
         
     }
 }
